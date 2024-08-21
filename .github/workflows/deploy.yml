@@ -20,6 +20,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Lint app
+        run: npm run lint
+
+      - name: Test app
+        run: npm run test
+
       - name: Build app
         run: npm run build
 

@@ -8,16 +8,23 @@
     "build": "tsc -b && vite build",
     "lint": "eslint src",
     "format": "prettier --write ./src",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest"
   },
   "dependencies": {
+    "@emotion/styled": "^11.13.0",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.18",
+    "@mui/x-charts": "^7.13.0",
     "@types/react": "^18.3.4",
     "@types/react-dom": "^18.3.0",
+    "antd": "^5.20.2",
     "eslint-plugin-react": "^7.35.0",
+    "lucide-react": "^0.429.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.1",
-    "sass": "^1.77.8"
+    "sass": "^1.77.8",
+    "styled-components": "^6.1.12"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
@@ -32,6 +39,7 @@
     "prettier": "3.3.3",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
-    "vite": "^5.4.1"
+    "vite": "^5.4.1",
+    "vitest": "^2.0.5"
   }
 }
