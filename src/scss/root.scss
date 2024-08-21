@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "./variables.scss";
+
+* {
+  font-family: "Montserrat", system-ui;
+}
+
+.page-container {
+  padding: 5em 10em;
+
+  @media screen and (max-width: 930px) {
+    padding: 3em 7em;
+  }
+
+  @media screen and (max-width: 660px) {
+    padding: 1em 2em;
+  }
+}
+
+.eye {
+  animation: clignement 4s infinite;
+  transform-origin: center center;
+}
+
+@keyframes clignement {
+  0%, 90% {
+    transform: scaleY(1); /* Taille normale */
+  }
+  92%, 98% {
+    transform: scaleY(0.1); /* Clignement des yeux */
+  }
+  100% {
+    transform: scaleY(1); /* Retour à la taille normale */
+  }
+}
