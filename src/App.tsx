@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Footer from "./components/footer";
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import FranchiseProvider from "./providers/FranchiseProvider";
 
