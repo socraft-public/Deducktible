@@ -1,0 +1,25 @@
+.ant-btn-primary {
+  background-color: $yellow;
+  color: $black;
+  font-size: 1em;
+  font-weight: 600;
+
+  &:hover {
+    background-color: $yellow !important;
+    color: $black !important;
+    opacity: 0.5;
+  }
+}
+
+.ant-btn-default:hover {
+  border-color: $black !important;
+  color: $black !important;
+  opacity: 0.5;
+}
+
+.ant-input:focus,
+.ant-input:hover {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: #28282880 !important;
+}
