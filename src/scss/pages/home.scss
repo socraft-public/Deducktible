@@ -12,18 +12,26 @@ header {
   .text {
     display: flex;
     flex-direction: column;
+    gap: 4px;
 
     h2 {
       font-size: 2.5em;
       margin-block-end: 10px;
-      margin-block-start: 1.5em;
+      margin-block-start: 1em;
       color: $black;
     }
 
     span {
       font-weight: 500;
       font-size: 1.1em;
-      opacity: 0.4;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      .socraft {
+        color: $yellow;
+        cursor: pointer;
+      }
     }
   }
 
@@ -40,6 +48,7 @@ header {
 .estimated-cost-input {
   margin: 2em 0;
   font-size: 1em;
+  width: 100%;
 }
 
 .franchises {
@@ -100,7 +109,7 @@ header {
   border: solid 1px #28282820;
   border-radius: 20px;
   margin: 1.5em 0 0 0;
-  padding: 0.5em 1em 1em 1em;
+  padding: 0.5em 0 1em 1em;
   font-size: 1.5em;
   background-color: $white;
 }
@@ -115,5 +124,6 @@ header {
   justify-content: center;
   font-size: 1.5em;
   margin: 1.5em 0 0 0;
+  padding: 0.5em 0 1em 1em;
   background-color: $white;
 }

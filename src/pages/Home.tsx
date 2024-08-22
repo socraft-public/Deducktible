@@ -21,6 +21,15 @@ const Home: FC<HomeProps> = () => {
         <div className="text">
           <h2>Deducktible</h2>
           <span>Comparateur de franchises</span>
+          <span>
+            Développé par{" "}
+            <span
+              onClick={() => window.open("https://socraft.ch")}
+              className="socraft"
+            >
+              socraft
+            </span>
+          </span>
         </div>
       </header>
       <Input
