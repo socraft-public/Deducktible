@@ -36,7 +36,7 @@ const Chart: React.FC<ChartProps> = ({ franchises, estimatedCost }) => {
       }}
       xAxis={[
         {
-          label: "Montant total facturé (CHF)",
+          label: "Montant annuel total facturé (CHF)",
           data: data[0].data.map(
             (_, index) => (index * estimatedCost * 2) / 70,
           ),
@@ -44,12 +44,12 @@ const Chart: React.FC<ChartProps> = ({ franchises, estimatedCost }) => {
       ]}
       yAxis={[
         {
-          label: "Montant payé par l'assuré (CHF)",
+          label: "Montant annuel payé par l'assuré (CHF)",
         },
       ]}
       sx={{
         [`& .${axisClasses.left} .${axisClasses.label}`]: {
-          transform: "translate(55px, -465px)",
+          transform: "translate(55px, -500px)",
           rotate: "90deg",
         },
         [`& .${axisClasses.bottom} .${axisClasses.label}`]: {
