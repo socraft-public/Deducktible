@@ -2,7 +2,7 @@
 
 <br />
 
-![workflow](https://github.com/optifit-app/optifit/actions/workflows/deploy.yml/badge.svg)
+![workflow](https://github.com/socraft-public/Deducktible/actions/workflows/deploy.yml/badge.svg)
 <br /><br />
 
 ## Contribute ❤️
