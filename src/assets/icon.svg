@@ -9,12 +9,15 @@
 
 		@keyframes blink {
 		0%, 90% {
+		fill: #13292C;
 		opacity: 1;
 		}
 		92%, 98% {
+		fill: #ffffff;
 		opacity: 0;
 		}
 		100% {
+		fill: #13292C;
 		opacity: 1;
 		}
 		}
