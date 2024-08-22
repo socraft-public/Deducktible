@@ -30,6 +30,10 @@ const Chart: React.FC<ChartProps> = ({ franchises, estimatedCost }) => {
         color: serie.color,
         showMark: false,
       }))}
+      grid={{
+        vertical: true,
+        horizontal: true,
+      }}
       xAxis={[
         {
           label: "Montant total facturé (CHF)",
