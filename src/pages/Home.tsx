@@ -1,5 +1,5 @@
 import { Input } from "antd";
-import { Plus } from "lucide-react";
+import { Plus, X } from "lucide-react";
 import { FC, useState } from "react";
 import icon from "../assets/icon.svg";
 import Chart from "../components/Chart";
@@ -10,7 +10,7 @@ import "../scss/pages/home.scss";
 type HomeProps = object;
 
 const Home: FC<HomeProps> = () => {
-  const { franchises } = useFranchise();
+  const { franchises, removeFranchise } = useFranchise();
   const [popupOpen, setPopupOpen] = useState<boolean>(false);
   const [estimatedAnnualCost, setEstimatedAnnualCost] = useState<number>();
 
@@ -40,7 +40,13 @@ const Home: FC<HomeProps> = () => {
             className="franchise"
             key={key}
           >
-            <span className="name">{franchise.name}</span>
+            <span className="name">
+              {franchise.name}
+              <X
+                className="delete"
+                onClick={() => removeFranchise(franchise)}
+              />
+            </span>
             <div className="infos">
               <span className="info">
                 Franchise : CHF {franchise.franchise} .-

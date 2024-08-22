@@ -6,14 +6,10 @@
 }
 
 .page-container {
-  padding: 3em 5em;
+  padding: 3em 5em 3em 2em;
 
-  @media screen and (max-width: 930px) {
-    padding: 3em 7em;
-  }
-
-  @media screen and (max-width: 660px) {
-    padding: 1em 2em;
+  @media screen and (max-width: 1690px) {
+    padding: 3em;
   }
 }
 

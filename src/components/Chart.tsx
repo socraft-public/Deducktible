@@ -1,4 +1,4 @@
-import { LineChart } from "@mui/x-charts";
+import { axisClasses, LineChart } from "@mui/x-charts";
 import React from "react";
 import { generateChartData } from "../utils/generateChartData";
 
@@ -15,8 +15,8 @@ interface ChartProps {
 }
 
 const Chart: React.FC<ChartProps> = ({ franchises, estimatedCost }) => {
-  if (estimatedCost <= 0 || !franchises.length) {
-    return <span>No data</span>;
+  if (!estimatedCost || !franchises.length) {
+    return <div className="no-data">Aucune donnée</div>;
   }
 
   const data = generateChartData(franchises, estimatedCost * 2);
@@ -36,15 +36,22 @@ const Chart: React.FC<ChartProps> = ({ franchises, estimatedCost }) => {
           data: data[0].data.map(
             (_, index) => (index * estimatedCost * 2) / 70,
           ),
-          valueFormatter: (value: any) => `${value} CHF`,
         },
       ]}
       yAxis={[
         {
           label: "Montant payé par l'assuré (CHF)",
-          valueFormatter: (value: any) => `${value} CHF`,
         },
       ]}
+      sx={{
+        [`& .${axisClasses.left} .${axisClasses.label}`]: {
+          transform: "translate(55px, -465px)",
+          rotate: "90deg",
+        },
+        [`& .${axisClasses.bottom} .${axisClasses.label}`]: {
+          transform: "translateY(10px)",
+        },
+      }}
     />
   );
 };

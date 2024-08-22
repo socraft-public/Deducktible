@@ -16,6 +16,12 @@ interface FranchiseContextProps {
     franchise: number,
     insurancePremium: number,
   ) => void;
+  removeFranchise: (franchise: {
+    name: string;
+    color: string;
+    franchise: number;
+    insurancePremium: number;
+  }) => void;
 }
 
 const FranchiseContext = createContext<FranchiseContextProps | undefined>(
@@ -53,8 +59,24 @@ const FranchiseProvider: FC<FranchiseProviderProps> = ({ children }) => {
     ]);
   };
 
+  const removeFranchise = (franchise: {
+    name: string;
+    color: string;
+    franchise: number;
+    insurancePremium: number;
+  }): void => {
+    const updatedFranchises = [...franchises];
+    const franchiseIndex = franchises.findIndex((f) => f === franchise);
+
+    updatedFranchises.splice(franchiseIndex, 1);
+
+    setFranchises(updatedFranchises);
+  };
+
   return (
-    <FranchiseContext.Provider value={{ franchises, addFranchise }}>
+    <FranchiseContext.Provider
+      value={{ franchises, addFranchise, removeFranchise }}
+    >
       {children}
     </FranchiseContext.Provider>
   );
