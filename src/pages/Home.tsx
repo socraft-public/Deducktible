@@ -61,7 +61,7 @@ const Home: FC<HomeProps> = () => {
                 Franchise : CHF {franchise.franchise} .-
               </span>
               <span className="info">
-                Prime annuelle : CHF {franchise.insurancePremium} .-
+                Prime mensuelle : CHF {franchise.insurancePremium / 12} .-
               </span>
             </div>
           </div>

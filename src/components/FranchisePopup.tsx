@@ -19,7 +19,7 @@ const FranchisePopup: FC<FranchisePopupProps> = ({ open, setOpen }) => {
       addFranchise(
         name ?? `Franchise ${franchises.length + 1}`,
         franchise,
-        insurancePremium,
+        insurancePremium * 12,
       );
 
       setName(undefined);
@@ -63,7 +63,7 @@ const FranchisePopup: FC<FranchisePopupProps> = ({ open, setOpen }) => {
           onChange={(e) => setFranchise(e.target.valueAsNumber)}
         />
         <Input
-          placeholder="Prime annuelle"
+          placeholder="Prime mensuelle"
           type="number"
           value={insurancePremium}
           onChange={(e) => setInsurancePremium(e.target.valueAsNumber)}
