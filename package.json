@@ -20,6 +20,7 @@
     "antd": "^5.20.2",
     "eslint-plugin-react": "^7.35.0",
     "lucide-react": "^0.429.0",
+    "posthog-js": "^1.157.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.1",
