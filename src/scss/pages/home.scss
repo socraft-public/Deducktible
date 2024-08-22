@@ -45,30 +45,39 @@ header {
   }
 }
 
-.estimated-cost-input {
-  margin: 2em 0;
-  font-size: 1em;
-  width: 100%;
-}
-
 .franchises {
   display: flex;
   align-items: stretch;
   gap: 10px;
   flex-wrap: wrap;
+  margin: 2em 0;
 
   .franchise {
-    border: solid 2px #28282820;
-    padding: 1em 2.5em;
+    border: solid 1px #28282820;
+    padding: 1em 2em;
     border-radius: 10px;
+    background-color: $white;
 
     .name {
-      font-size: 1.5em;
+      font-size: 1.2em;
       font-weight: 600;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      min-width: 300px;
       gap: 10px;
+
+      .text {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .color {
+          height: 15px;
+          width: 15px;
+          border-radius: 5px;
+        }
+      }
 
       .delete {
         cursor: pointer;
@@ -80,6 +89,10 @@ header {
       flex-direction: column;
       margin: 1em 0 0 0;
       gap: 5px;
+    }
+
+    input {
+      margin: 1em 0 0 0;
     }
   }
 

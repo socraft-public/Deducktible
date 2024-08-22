@@ -4,7 +4,7 @@ import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./scss/root.scss";
 
-posthog.init("phc_BJg7ERvmod7hJSjby55IeT2yrwyWOetVQfOj10SYgdq", {
+posthog.init("phc_SeAphPD3oqnDpP4T0OVByqfbCrIn6QMNN55ucwxRuKU", {
   api_host: "https://eu.posthog.com",
 });
 

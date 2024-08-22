@@ -12,7 +12,7 @@ type HomeProps = object;
 const Home: FC<HomeProps> = () => {
   const { franchises, removeFranchise } = useFranchise();
   const [popupOpen, setPopupOpen] = useState<boolean>(false);
-  const [estimatedAnnualCost, setEstimatedAnnualCost] = useState<number>();
+  const [estimatedAnnualCost, setEstimatedAnnualCost] = useState<number>(6000);
 
   return (
     <div className="page-container">
@@ -32,36 +32,39 @@ const Home: FC<HomeProps> = () => {
           </span>
         </div>
       </header>
-      <Input
-        placeholder="Coût estimé pour une année"
-        className="estimated-cost-input"
-        type="number"
-        value={estimatedAnnualCost}
-        onChange={(e) => setEstimatedAnnualCost(e.target.valueAsNumber)}
-      />
       <div className="franchises">
+        <div className="franchise">
+          <span className="name">Coût annuel estimé</span>
+          <Input
+            placeholder="12345"
+            className="estimated-cost-input"
+            type="number"
+            value={estimatedAnnualCost}
+            step={200}
+            onChange={(e) => setEstimatedAnnualCost(e.target.valueAsNumber)}
+          />
+        </div>
         {franchises.map((franchise, key) => (
-          <div
-            style={{
-              backgroundColor: franchise.color + "10",
-              borderColor: franchise.color + "50",
-            }}
-            className="franchise"
-            key={key}
-          >
-            <span className="name">
-              {franchise.name}
+          <div className="franchise" key={key}>
+            <div className="name">
+              <span className="text">
+                <span
+                  className="color"
+                  style={{ backgroundColor: franchise.color }}
+                ></span>
+                {franchise.name}
+              </span>
               <X
                 className="delete"
                 onClick={() => removeFranchise(franchise)}
               />
-            </span>
+            </div>
             <div className="infos">
               <span className="info">
                 Franchise : CHF {franchise.franchise} .-
               </span>
               <span className="info">
-                Prime annuelle : CHF {franchise.insurancePremium} .-
+                Prime mensuelle : CHF {franchise.insurancePremium / 12} .-
               </span>
             </div>
           </div>
