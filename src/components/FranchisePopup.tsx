@@ -1,6 +1,8 @@
 import { Button, Input, Modal } from "antd";
 import { Plus, X } from "lucide-react";
 import { FC, useState } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useFranchise } from "../providers/FranchiseProvider";
 
 interface FranchisePopupProps {
@@ -16,17 +18,21 @@ const FranchisePopup: FC<FranchisePopupProps> = ({ open, setOpen }) => {
 
   const handleSubmit = (): void => {
     if (franchise && insurancePremium) {
-      addFranchise(
-        name ?? `Franchise ${franchises.length + 1}`,
-        franchise,
-        insurancePremium * 12,
-      );
+      if (!franchises.some((f) => f.name === name)) {
+        addFranchise(
+          name ?? `Franchise ${franchises.length + 1}`,
+          franchise,
+          insurancePremium * 12,
+        );
 
-      setName(undefined);
-      setFranchise(undefined);
-      setInsurancePremium(undefined);
+        setName(undefined);
+        setFranchise(undefined);
+        setInsurancePremium(undefined);
 
-      setOpen(false);
+        setOpen(false);
+      } else {
+        toast.error("Une autre franchise a déjà ce nom");
+      }
     }
   };
 
