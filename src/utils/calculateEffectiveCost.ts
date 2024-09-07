@@ -1,22 +1,22 @@
 export const calculateEffectiveCost = (
-  franchise: number,
-  insurancePremium: number,
+  deductible: number,
+  premium: number,
   totalBilled: number,
 ) => {
   const participationRate = 0.1;
   const participationThreshold = 7000;
-  let effectiveCost = insurancePremium;
+  let effectiveCost = premium;
 
-  if (totalBilled <= franchise) {
+  if (totalBilled <= deductible) {
     effectiveCost += totalBilled;
   } else {
-    const excess = totalBilled - franchise;
+    const excess = totalBilled - deductible;
 
     if (excess <= participationThreshold) {
       const participation = excess * participationRate;
-      effectiveCost += franchise + participation;
+      effectiveCost += deductible + participation;
     } else {
-      effectiveCost += franchise + participationThreshold * participationRate;
+      effectiveCost += deductible + participationThreshold * participationRate;
     }
   }
   return effectiveCost;

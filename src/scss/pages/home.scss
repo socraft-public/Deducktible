@@ -24,13 +24,11 @@ header {
     span {
       font-weight: 500;
       font-size: 1.1em;
-      display: flex;
-      align-items: center;
-      gap: 5px;
 
       .socraft {
         color: $yellow;
         cursor: pointer;
+        text-decoration: none;
       }
     }
   }
@@ -45,14 +43,14 @@ header {
   }
 }
 
-.franchises {
+.contracts {
   display: flex;
   align-items: stretch;
   gap: 10px;
   flex-wrap: wrap;
   margin: 2em 0;
 
-  .franchise {
+  .contract {
     border: solid 1px #28282820;
     padding: 1em 2em;
     border-radius: 10px;
@@ -97,7 +95,7 @@ header {
     }
   }
 
-  .add-franchise-button {
+  .add-contract-button {
     background-color: $white;
     height: 130px;
     width: 130px;
@@ -118,10 +116,10 @@ header {
 }
 
 .chart {
-  width: 100% !important;
-  height: 800px !important;
+  width: calc(100% - 1em) !important;
+  height: min(100vw, 800px) !important;
   border: solid 1px #28282820;
-  border-radius: 20px;
+  border-radius: 10px;
   margin: 1.5em 0 0 0;
   padding: 0.5em 0 1em 1em;
   font-size: 1.5em;
@@ -129,10 +127,10 @@ header {
 }
 
 .no-data {
-  height: 800px;
-  width: 100%;
+  height: min(100vw, 800px);
+  width: calc(100% - 1em) !important;
   border: solid 1px #28282820;
-  border-radius: 20px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;

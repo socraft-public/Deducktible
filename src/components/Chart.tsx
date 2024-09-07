@@ -1,25 +1,19 @@
 import { axisClasses, LineChart } from "@mui/x-charts";
 import React from "react";
 import { generateChartData } from "../utils/generateChartData";
-
-interface Franchise {
-  name: string;
-  color: string;
-  franchise: number;
-  insurancePremium: number;
-}
+import { InsuranceContract } from "../domain/InsuranceContract.tsx";
 
 interface ChartProps {
-  franchises: Franchise[];
+  contracts: InsuranceContract[];
   estimatedCost: number;
 }
 
-const Chart: React.FC<ChartProps> = ({ franchises, estimatedCost }) => {
-  if (!estimatedCost || !franchises.length) {
+const Chart: React.FC<ChartProps> = ({ contracts, estimatedCost }) => {
+  if (!estimatedCost || !contracts.length) {
     return <div className="no-data">Aucune donnée</div>;
   }
 
-  const data = generateChartData(franchises, estimatedCost * 2);
+  const data = generateChartData(contracts, estimatedCost * 2);
 
   return (
     <LineChart

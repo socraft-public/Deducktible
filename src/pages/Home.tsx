@@ -3,14 +3,14 @@ import { Plus, X } from "lucide-react";
 import { FC, useState } from "react";
 import icon from "../assets/icon.svg";
 import Chart from "../components/Chart";
-import FranchisePopup from "../components/FranchisePopup";
-import { useFranchise } from "../providers/FranchiseProvider";
+import ContractPopup from "../components/ContractPopup.tsx";
+import { useContract } from "../providers/ContractProvider.tsx";
 import "../scss/pages/home.scss";
 
 type HomeProps = object;
 
 const Home: FC<HomeProps> = () => {
-  const { franchises, removeFranchise } = useFranchise();
+  const { contracts, removeContract } = useContract();
   const [popupOpen, setPopupOpen] = useState<boolean>(false);
   const [estimatedAnnualCost, setEstimatedAnnualCost] = useState<number>(6000);
 
@@ -23,17 +23,14 @@ const Home: FC<HomeProps> = () => {
           <span>Comparateur de franchises</span>
           <span>
             Développé par{" "}
-            <span
-              onClick={() => window.open("https://socraft.ch")}
-              className="socraft"
-            >
+            <a className="socraft" href="https://socraft.ch">
               socraft
-            </span>
+            </a>
           </span>
         </div>
       </header>
-      <div className="franchises">
-        <div className="franchise">
+      <div className="contracts">
+        <div className="contract">
           <span className="name">Coût annuel estimé</span>
           <Input
             placeholder="12345"
@@ -44,40 +41,37 @@ const Home: FC<HomeProps> = () => {
             onChange={(e) => setEstimatedAnnualCost(e.target.valueAsNumber)}
           />
         </div>
-        {franchises.map((franchise, key) => (
-          <div className="franchise" key={key}>
+        {contracts.map((contract, key) => (
+          <div className="contract" key={key}>
             <div className="name">
               <span className="text">
                 <span
                   className="color"
-                  style={{ backgroundColor: franchise.color }}
+                  style={{ backgroundColor: contract.color }}
                 ></span>
-                {franchise.name}
+                {contract.name}
               </span>
-              <X
-                className="delete"
-                onClick={() => removeFranchise(franchise)}
-              />
+              <X className="delete" onClick={() => removeContract(contract)} />
             </div>
             <div className="infos">
               <span className="info">
-                Franchise : CHF {franchise.franchise} .-
+                Franchise : CHF {contract.deductible} .-
               </span>
               <span className="info">
-                Prime mensuelle : CHF {franchise.insurancePremium / 12} .-
+                Prime mensuelle : CHF {contract.premium / 12} .-
               </span>
             </div>
           </div>
         ))}
         <button
-          className="add-franchise-button"
+          className="add-contract-button"
           onClick={() => setPopupOpen(true)}
         >
           <Plus size={46} />
         </button>
       </div>
-      <Chart franchises={franchises} estimatedCost={estimatedAnnualCost ?? 0} />
-      <FranchisePopup open={popupOpen} setOpen={setPopupOpen} />
+      <Chart contracts={contracts} estimatedCost={estimatedAnnualCost ?? 0} />
+      <ContractPopup open={popupOpen} setOpen={setPopupOpen} />
     </div>
   );
 };
