@@ -1,23 +1,24 @@
+const PARTICIPATION_RATE = 0.1;
+const PARTICIPATION_THRESHOLD = 7000;
+
 export const calculateEffectiveCost = (
   deductible: number,
   premium: number,
-  totalBilled: number,
+  billedCost: number,
 ) => {
-  const participationRate = 0.1;
-  const participationThreshold = 7000;
-  let effectiveCost = premium;
+  let actualCost = premium;
 
-  if (totalBilled <= deductible) {
-    effectiveCost += totalBilled;
+  if (billedCost <= deductible) {
+    actualCost += billedCost;
   } else {
-    const excess = totalBilled - deductible;
+    const excess = billedCost - deductible;
 
-    if (excess <= participationThreshold) {
-      const participation = excess * participationRate;
-      effectiveCost += deductible + participation;
+    if (excess <= PARTICIPATION_THRESHOLD) {
+      const participation = excess * PARTICIPATION_RATE;
+      actualCost += deductible + participation;
     } else {
-      effectiveCost += deductible + participationThreshold * participationRate;
+      actualCost += deductible + PARTICIPATION_THRESHOLD * PARTICIPATION_RATE;
     }
   }
-  return effectiveCost;
+  return actualCost;
 };

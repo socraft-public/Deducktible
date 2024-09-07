@@ -20,7 +20,7 @@ const ContractPopup: FC<ContractPopupProps> = ({ open, setOpen }) => {
     if (deductible && premium) {
       if (!contracts.some((f) => f.name === name)) {
         addContract(
-          name ?? `Franchise ${contracts.length + 1}`,
+          name ?? `Contrat ${contracts.length + 1}`,
           deductible,
           premium * 12,
         );
@@ -38,7 +38,7 @@ const ContractPopup: FC<ContractPopupProps> = ({ open, setOpen }) => {
 
   return (
     <Modal
-      title="Ajouter une franchise"
+      title="Ajouter un contrat"
       centered
       open={open}
       onOk={() => setOpen(false)}
@@ -59,7 +59,7 @@ const ContractPopup: FC<ContractPopupProps> = ({ open, setOpen }) => {
         <Input
           placeholder="Nom"
           type="text"
-          value={name}
+          value={`Contrat ${contracts.length + 1}`}
           onChange={(e) => setName(e.target.value)}
         />
         <Input

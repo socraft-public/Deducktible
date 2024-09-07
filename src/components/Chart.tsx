@@ -5,15 +5,14 @@ import { InsuranceContract } from "../domain/InsuranceContract.tsx";
 
 interface ChartProps {
   contracts: InsuranceContract[];
-  estimatedCost: number;
 }
 
-const Chart: React.FC<ChartProps> = ({ contracts, estimatedCost }) => {
-  if (!estimatedCost || !contracts.length) {
-    return <div className="no-data">Aucune donnée</div>;
+const Chart: React.FC<ChartProps> = ({ contracts }) => {
+  if (!contracts.length) {
+    return <div className="no-data">Ajoutez au moins un contrat</div>;
   }
 
-  const data = generateChartData(contracts, estimatedCost * 2);
+  const data = generateChartData(contracts);
 
   return (
     <LineChart
@@ -30,15 +29,13 @@ const Chart: React.FC<ChartProps> = ({ contracts, estimatedCost }) => {
       }}
       xAxis={[
         {
-          label: "Montant annuel total facturé (CHF)",
-          data: data[0].data.map(
-            (_, index) => (index * estimatedCost * 2) / 70,
-          ),
+          label: "Frais médicaux facturés à l'assurance (CHF)",
+          data: data[0].data.map((_, index) => index * 100),
         },
       ]}
       yAxis={[
         {
-          label: "Montant annuel payé par l'assuré (CHF)",
+          label: "Montant effectif payé par l'assuré (CHF)",
         },
       ]}
       sx={{

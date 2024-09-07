@@ -1,4 +1,3 @@
-import { Input } from "antd";
 import { Plus } from "lucide-react";
 import { FC, useState } from "react";
 import icon from "../assets/icon.svg";
@@ -13,7 +12,6 @@ type HomeProps = object;
 const Home: FC<HomeProps> = () => {
   const { contracts, removeContract } = useContract();
   const [popupOpen, setPopupOpen] = useState<boolean>(false);
-  const [estimatedAnnualCost, setEstimatedAnnualCost] = useState<number>(6000);
 
   return (
     <div className="page-container">
@@ -31,17 +29,6 @@ const Home: FC<HomeProps> = () => {
         </div>
       </header>
       <div className="contracts">
-        <div className="contract">
-          <span className="name">Coût annuel estimé</span>
-          <Input
-            placeholder="12345"
-            className="estimated-cost-input"
-            type="number"
-            value={estimatedAnnualCost}
-            step={200}
-            onChange={(e) => setEstimatedAnnualCost(e.target.valueAsNumber)}
-          />
-        </div>
         {contracts.map((contract, key) => (
           <ContractCard
             key={key}
@@ -56,7 +43,7 @@ const Home: FC<HomeProps> = () => {
           <Plus size={46} />
         </button>
       </div>
-      <Chart contracts={contracts} estimatedCost={estimatedAnnualCost ?? 0} />
+      <Chart contracts={contracts} />
       <ContractPopup open={popupOpen} setOpen={setPopupOpen} />
     </div>
   );

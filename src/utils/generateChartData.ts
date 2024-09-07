@@ -1,15 +1,17 @@
 import { calculateEffectiveCost } from "./calculateEffectiveCost";
 import { InsuranceContract } from "../domain/InsuranceContract.tsx";
 
-export const generateChartData = (
-  contracts: InsuranceContract[],
-  maxBilled: number,
-) => {
-  const steps = 70;
-  const stepSize = maxBilled / steps;
+const MAX_BILLED = 12000;
+
+export const generateChartData = (contracts: InsuranceContract[]) => {
+  const stepSize = 100;
   const xData: number[] = [];
 
-  for (let totalBilled = 0; totalBilled <= maxBilled; totalBilled += stepSize) {
+  for (
+    let totalBilled: number = 0;
+    totalBilled <= MAX_BILLED;
+    totalBilled += stepSize
+  ) {
     xData.push(totalBilled);
   }
 
