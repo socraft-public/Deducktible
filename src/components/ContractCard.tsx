@@ -1,13 +1,15 @@
 import { X } from "lucide-react";
 import { InsuranceContract } from "../domain/InsuranceContract.tsx";
+import { FC } from "react";
 
-export const ContractCard = (
-  key: string,
-  contract: InsuranceContract,
-  removeContract: (contract: InsuranceContract) => void,
-) => {
+interface ContractCardProps {
+  contract: InsuranceContract;
+  removeContract: (contract: InsuranceContract) => void;
+}
+
+const ContractCard: FC<ContractCardProps> = ({ contract, removeContract }) => {
   return (
-    <div className="contract" key={key}>
+    <div className="contract">
       <div className="name">
         <span className="text">
           <span
@@ -27,3 +29,5 @@ export const ContractCard = (
     </div>
   );
 };
+
+export default ContractCard;

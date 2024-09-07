@@ -1,8 +1,9 @@
 import { Input } from "antd";
-import { Plus, X } from "lucide-react";
+import { Plus } from "lucide-react";
 import { FC, useState } from "react";
 import icon from "../assets/icon.svg";
 import Chart from "../components/Chart";
+import ContractCard from "../components/ContractCard.tsx";
 import ContractPopup from "../components/ContractPopup.tsx";
 import { useContract } from "../providers/ContractProvider.tsx";
 import "../scss/pages/home.scss";
@@ -42,26 +43,11 @@ const Home: FC<HomeProps> = () => {
           />
         </div>
         {contracts.map((contract, key) => (
-          <div className="contract" key={key}>
-            <div className="name">
-              <span className="text">
-                <span
-                  className="color"
-                  style={{ backgroundColor: contract.color }}
-                ></span>
-                {contract.name}
-              </span>
-              <X className="delete" onClick={() => removeContract(contract)} />
-            </div>
-            <div className="infos">
-              <span className="info">
-                Franchise : CHF {contract.deductible} .-
-              </span>
-              <span className="info">
-                Prime mensuelle : CHF {contract.premium / 12} .-
-              </span>
-            </div>
-          </div>
+          <ContractCard
+            key={key}
+            contract={contract}
+            removeContract={removeContract}
+          />
         ))}
         <button
           className="add-contract-button"
