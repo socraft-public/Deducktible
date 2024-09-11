@@ -19,15 +19,19 @@ const Home: FC<HomeProps> = () => {
         <img src={icon} className="icon" />
         <div className="text">
           <h2>Deducktible</h2>
-          <span>Comparateur de franchises</span>
-          <span>
-            Développé par{" "}
-            <a className="socraft" href="https://socraft.ch">
-              socraft
-            </a>
-          </span>
+          <span>Comparateur de franchises LAMal</span>
         </div>
       </header>
+      <div className="instructions">
+        <p>
+          Comparez le coût de revient réel suivant différentes franchises et
+          primes LAMal.
+        </p>
+        <p>
+          Ajoutez les contrats que vous souhaitez visualiser en cliquant sur le
+          +
+        </p>
+      </div>
       <div className="contracts">
         {contracts.map((contract, key) => (
           <ContractCard
@@ -43,7 +47,33 @@ const Home: FC<HomeProps> = () => {
           <Plus size={46} />
         </button>
       </div>
+      <div className="instructions">
+        <p>
+          En estimant vos frais médicaux de l’année (horizontal), vous trouverez
+          vos coûts effectifs suivant le contrat (vertical).
+        </p>
+        <p>
+          Optimiser le choix de sa franchise revient à rester sur la ligne la
+          plus basse. En général seules les franchises à 300.– et 2’500.– le
+          permettent.
+        </p>
+      </div>
       <Chart contracts={contracts} />
+      <footer>
+        <div className="text">
+          <span>
+            Développé par{" "}
+            <a
+              className="socraft"
+              href="https://socraft.ch"
+              target="_blank"
+              rel="noreferrer"
+            >
+              socraft
+            </a>
+          </span>
+        </div>
+      </footer>
       <ContractPopup open={popupOpen} setOpen={setPopupOpen} />
     </div>
   );

@@ -35,7 +35,7 @@ const Chart: React.FC<ChartProps> = ({ contracts }) => {
       ]}
       yAxis={[
         {
-          label: "Montant effectif payé par l'assuré (CHF)",
+          label: "Coûts effectifs payés par l'assuré (CHF)",
         },
       ]}
       sx={{
