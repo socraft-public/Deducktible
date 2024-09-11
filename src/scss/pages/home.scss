@@ -136,7 +136,6 @@ footer {
     border: solid 1px #28282820;
     font-size: 3em;
     cursor: pointer;
-    background-color: $white;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -150,19 +149,17 @@ footer {
 }
 
 .chart {
-  width: calc(100% - 1em) !important;
+  width: calc(100% - 0.5em) !important;
   height: min(100vw, 800px) !important;
   border: solid 1px #28282820;
   border-radius: 10px;
-  margin: 1.5em 0 0 0;
-  padding: 0.5em 0 1em 1em;
+  padding: 0.2em;
   font-size: 1.5em;
   background-color: $white;
 }
 
 .no-data {
   height: min(100vw, 800px);
-  width: calc(100% - 1em) !important;
   border: solid 1px #28282820;
   border-radius: 10px;
   display: flex;

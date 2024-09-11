@@ -1,7 +1,7 @@
 import { calculateEffectiveCost } from "./calculateEffectiveCost";
 import { InsuranceContract } from "../domain/InsuranceContract.tsx";
 
-const MAX_BILLED = 15000;
+export const MAX_BILLED = 15000;
 
 export const generateChartData = (contracts: InsuranceContract[]) => {
   const stepSize = 100;

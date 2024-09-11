@@ -1,6 +1,6 @@
 import { axisClasses, LineChart } from "@mui/x-charts";
 import React from "react";
-import { generateChartData } from "../utils/generateChartData";
+import { generateChartData, MAX_BILLED } from "../utils/generateChartData";
 import { InsuranceContract } from "../domain/InsuranceContract.tsx";
 
 interface ChartProps {
@@ -16,6 +16,7 @@ const Chart: React.FC<ChartProps> = ({ contracts }) => {
 
   return (
     <LineChart
+      margin={{ top: 12, right: 24, bottom: 52, left: 68 }}
       className="chart"
       series={data.map((serie) => ({
         id: serie.id,
@@ -29,19 +30,19 @@ const Chart: React.FC<ChartProps> = ({ contracts }) => {
       }}
       xAxis={[
         {
-          label: "Frais médicaux facturés à l'assurance (CHF)",
+          label: "Frais médicaux facturés (CHF)",
           data: data[0].data.map((_, index) => index * 100),
+          max: MAX_BILLED,
         },
       ]}
       yAxis={[
         {
-          label: "Coûts effectifs payés par l'assuré (CHF)",
+          label: "Coûts effectifs payés (CHF)",
         },
       ]}
       sx={{
         [`& .${axisClasses.left} .${axisClasses.label}`]: {
-          transform: "translate(55px, -500px)",
-          rotate: "90deg",
+          transform: "translateX(-28px)",
         },
         [`& .${axisClasses.bottom} .${axisClasses.label}`]: {
           transform: "translateY(10px)",
