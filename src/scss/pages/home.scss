@@ -24,13 +24,11 @@ header {
     span {
       font-weight: 500;
       font-size: 1.1em;
-      display: flex;
-      align-items: center;
-      gap: 5px;
 
       .socraft {
         color: $yellow;
         cursor: pointer;
+        text-decoration: none;
       }
     }
   }
@@ -45,14 +43,48 @@ header {
   }
 }
 
-.franchises {
+footer {
+  margin-top: 1em;
+  display: flex;
+  gap: 30px;
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+    flex-grow: 1;
+
+    span {
+      font-weight: 500;
+      font-size: 1em;
+
+      .socraft {
+        color: $yellow;
+        cursor: pointer;
+        text-decoration: none;
+      }
+    }
+  }
+
+  @media screen and (max-width: 670px) {
+    flex-direction: column;
+    gap: 10px;
+
+    h2 {
+      margin-block-start: 0 !important;
+    }
+  }
+}
+
+.contracts {
   display: flex;
   align-items: stretch;
   gap: 10px;
   flex-wrap: wrap;
   margin: 2em 0;
 
-  .franchise {
+  .contract {
     border: solid 1px #28282820;
     padding: 1em 2em;
     border-radius: 10px;
@@ -97,14 +129,13 @@ header {
     }
   }
 
-  .add-franchise-button {
+  .add-contract-button {
     background-color: $white;
     height: 130px;
     width: 130px;
     border: solid 1px #28282820;
     font-size: 3em;
     cursor: pointer;
-    background-color: $white;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -118,21 +149,19 @@ header {
 }
 
 .chart {
-  width: 100% !important;
-  height: 800px !important;
+  width: calc(100% - 0.5em) !important;
+  height: min(100vw, 800px) !important;
   border: solid 1px #28282820;
-  border-radius: 20px;
-  margin: 1.5em 0 0 0;
-  padding: 0.5em 0 1em 1em;
+  border-radius: 10px;
+  padding: 0.2em;
   font-size: 1.5em;
   background-color: $white;
 }
 
 .no-data {
-  height: 800px;
-  width: 100%;
+  height: min(100vw, 800px);
   border: solid 1px #28282820;
-  border-radius: 20px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;

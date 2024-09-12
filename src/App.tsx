@@ -2,13 +2,13 @@ import { FC } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import Home from "./pages/Home";
-import FranchiseProvider from "./providers/FranchiseProvider";
+import ContractProvider from "./providers/ContractProvider.tsx";
 
 type AppProps = object;
 
 const App: FC<AppProps> = () => {
   return (
-    <FranchiseProvider>
+    <ContractProvider>
       <BrowserRouter>
         <ToastContainer
           position="top-right"
@@ -26,7 +26,7 @@ const App: FC<AppProps> = () => {
           <Route path="*" element={<Home />} />
         </Routes>
       </BrowserRouter>
-    </FranchiseProvider>
+    </ContractProvider>
   );
 };
 

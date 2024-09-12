@@ -1,37 +1,33 @@
 import { calculateEffectiveCost } from "./calculateEffectiveCost";
+import { InsuranceContract } from "../domain/InsuranceContract.tsx";
 
-interface Franchise {
-  name: string;
-  color: string;
-  franchise: number;
-  insurancePremium: number;
-}
+export const MAX_BILLED = 15000;
 
-export const generateChartData = (
-  franchises: Franchise[],
-  maxBilled: number,
-) => {
-  const steps = 70;
-  const stepSize = maxBilled / steps;
+export const generateChartData = (contracts: InsuranceContract[]) => {
+  const stepSize = 100;
   const xData: number[] = [];
 
-  for (let totalBilled = 0; totalBilled <= maxBilled; totalBilled += stepSize) {
+  for (
+    let totalBilled: number = 0;
+    totalBilled <= MAX_BILLED;
+    totalBilled += stepSize
+  ) {
     xData.push(totalBilled);
   }
 
-  return franchises.map((franchise) => {
+  return contracts.map((contract) => {
     const yData = xData.map((totalBilled) =>
       calculateEffectiveCost(
-        franchise.franchise,
-        franchise.insurancePremium,
+        contract.deductible,
+        contract.premium,
         totalBilled,
       ),
     );
 
     return {
-      id: franchise.name,
+      id: contract.name,
       data: yData,
-      color: franchise.color,
+      color: contract.color,
     };
   });
 };

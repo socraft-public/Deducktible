@@ -1,23 +1,24 @@
+const PARTICIPATION_RATE = 0.1;
+const PARTICIPATION_THRESHOLD = 7000;
+
 export const calculateEffectiveCost = (
-  franchise: number,
-  insurancePremium: number,
-  totalBilled: number,
+  deductible: number,
+  premium: number,
+  billedCost: number,
 ) => {
-  const participationRate = 0.1;
-  const participationThreshold = 7000;
-  let effectiveCost = insurancePremium;
+  let actualCost = premium;
 
-  if (totalBilled <= franchise) {
-    effectiveCost += totalBilled;
+  if (billedCost <= deductible) {
+    actualCost += billedCost;
   } else {
-    const excess = totalBilled - franchise;
+    const excess = billedCost - deductible;
 
-    if (excess <= participationThreshold) {
-      const participation = excess * participationRate;
-      effectiveCost += franchise + participation;
+    if (excess <= PARTICIPATION_THRESHOLD) {
+      const participation = excess * PARTICIPATION_RATE;
+      actualCost += deductible + participation;
     } else {
-      effectiveCost += franchise + participationThreshold * participationRate;
+      actualCost += deductible + PARTICIPATION_THRESHOLD * PARTICIPATION_RATE;
     }
   }
-  return effectiveCost;
+  return actualCost;
 };

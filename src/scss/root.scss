@@ -7,9 +7,11 @@
 
 .page-container {
   padding: 3em 3em 3em 2em;
+  display: flex;
+  flex-direction: column;
 
   @media screen and (max-width: 1125px) {
-    padding: 2em 3em 2em 1em;
+    padding: 1em 0.4em;
   }
 }
 
